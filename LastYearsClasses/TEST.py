@@ -1,5 +1,5 @@
-from oldlib.movement import Movement
-from oldlib.vision import Vision
+from LastYearsClasses.oldlib.movement import Movement
+from LastYearsClasses.oldlib.vision import Vision
 # omae wa mou shindeiru
 
 movement = Movement()
