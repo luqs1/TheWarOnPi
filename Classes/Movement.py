@@ -1,4 +1,4 @@
-#import RPi.GPIO as IO # The Module that lets you control GPIO pins in the Raspberry Pi
+import RPi.GPIO as IO # The Module that lets you control GPIO pins in the Raspberry Pi
 class Movement: #The Movement Class for moving the robot
     def __init__(self):
         IO.setmode(GPIO.BCM)
