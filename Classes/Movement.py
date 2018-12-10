@@ -5,21 +5,20 @@ class Movement: #The Movement Class for moving the robot
         IO.setmode(GPIO.BCM)
         self.wpins = [[18, 6], [13, 19]] #Array with sub-arrays that have to Input and Direction for both left and right
         IO.setup(self.wpins[0] + self.wpins[1], IO.OUT)
-        self.left  = [self.wpins[0]]
-        self.right = [self.wpins[1]]
+        self.left  = IO.PWM(self.wpins[0][0],100)
+        self.right = IO.PWM(self.wpins[1][0],100)
     def set(self, speedl, speedr, dirl, dirr):
-        IO.PWM(self.wpins[0][0], speedl)
-        IO.PWM(self.wpins[1][0], speedr)
+        self.left.start(speedl)
+        self.right.start(speedr)
         IO.output(self.wpins[0][1], dirl)
         IO.output(self.wpins[1][1], dirr)
     def stop(self):
         self.set(0,0,0,0)
     def turn(self, rot, t=0, speed=100):
         if rot== 'l':
-            rot = 0
+            self.set(speed,speed,1,0)
         elif rot== 'r':
-            rot = 1
-        self.set(speed, speed, rot, 1 - rot)
+            self.set(speed,speed,0,1)
         if t is not None:
             sleep(t)
             self.stop()
