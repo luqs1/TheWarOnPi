@@ -25,4 +25,4 @@ def operate(arg):
     elif arg.name == 'd' :
         M.turn('r',1)
 keyboard.on_press(operate)
-keyboard.wait('q')
+        keyboard.wait('q')
