@@ -16,13 +16,9 @@ class test:
 """
 
 def operate(arg):
-    if arg.name == 'w' :
-        M.forward(50,0.1)
-    elif arg.name == 's' :
-        M.stop()
-    elif arg.name == 'a' :
-        M.turn('l',1)
-    elif arg.name == 'd' :
-        M.turn('r',1)
+    if arg.name == 'w'      : M.forward(50,0.1)
+    elif arg.name == 's'    : M.stop()
+    elif arg.name == 'a'    : M.turn('l',1)
+    elif arg.name == 'd'    : M.turn('r',1)
 keyboard.on_press(operate)
 keyboard.wait('q')
