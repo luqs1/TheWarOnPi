@@ -35,6 +35,11 @@ class Movement: #The Movement Class for moving the robot; assign a variable to u
             self.set(speed,speed,0,1) #0 == FORWARDS
         self.wait(t) #Now you see why I made a wait function ;D
 
-    def forward(self, speed=50, t=0): #Basic Forwards movement; impossible to underestimate
-        self.set(speed, speed, 0, 0) #0 == FORWARDS
+    def forward(self, speed=50, t=0,direction = 0): #Basic Forwards movement; impossible to underestimate
+        if direction != 0:
+            dir1 = direction
+            dir2 = direction
+        else:
+            dir1,dir2 = 0,0
+        self.set(speed, speed, dir1, dir2) #0 == FORWARDS
         self.wait(t) # ;D
