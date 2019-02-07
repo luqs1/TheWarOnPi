@@ -1,5 +1,5 @@
 import evdev
-import * from Classes.Movement
+from Classes.Movement import *
 m = Movement()
 speed = int(input()) % 101
 buttonMap = {'312':[m.forward,(speed,0,1)],'310':[m.turn,('l',0,speed)],'313':[m.forward,(speed,0)],'311':[m.turn,('r',0,speed)]}
@@ -11,7 +11,7 @@ def buttonPressed(button):
     a = buttonMap[button]
     a[2] = not a[2]
     if a[2]:
-        a[0](a[1])
+        a[0](*a[1])
     elif not a[2]:
         m.stop()
 
