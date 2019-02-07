@@ -1,7 +1,7 @@
 import evdev
 from Classes import Movement
 m = Movement.Movement()
-speed = 50
+speed = int(input()) % 101
 buttonMap = {'312':[m.forward,(speed,0,1)],'310':[m.turn,('l',0,speed)],'313':[m.forward,(speed,0)],'311':[m.turn,('r',0,speed)],'316':[exit,()]}
 
 for i in buttonMap.values():
