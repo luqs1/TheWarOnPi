@@ -42,7 +42,7 @@ def distance(GPIO_TRIGGER,GPIO_ECHO):
 if __name__ == '__main__':
     try:
         while True:
-            dist = distance()
+            dist = distance(GPIO_TRIGGER,GPIO_ECHO)
             print ("Measured Distance = %.1f cm" % dist)
             time.sleep(1)
  
