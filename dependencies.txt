@@ -1,4 +1,4 @@
 Whole Program requires RPi.GPIO:
 (included in Pi by default)
-test.py requires the keyboard module:
+MovementTest1.py requires the keyboard module:
 sudo pip3 install keyboard
