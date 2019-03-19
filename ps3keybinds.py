@@ -19,7 +19,7 @@ def buttonPressed(button):
 
 def deadZones(conInput):
     a = conInput - 127
-    return (a//10)
+    return (a//10)*10
     
 
 x = 0
