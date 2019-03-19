@@ -2,6 +2,7 @@ import evdev
 from Classes.Movement import *
 m = Movement()
 speed = int(input('Speed: ')) % 101
+deadzone = 10
 
 buttonMap = {'312':[m.forward,(speed,0,1)],'310':[m.turn,('l',0,speed)],'313':[m.forward,(speed,0)],'311':[m.turn,('r',0,speed)],'316':[exit,()]}
 
@@ -19,7 +20,8 @@ def buttonPressed(button):
 
 def deadZones(conInput):
     a = conInput - 127
-    return (a//10)*10
+    if abs(a) < deadzone: return 0
+    else: return a
     
 
 x = 0
