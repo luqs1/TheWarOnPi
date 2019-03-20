@@ -4,7 +4,7 @@ m = Movement()
 speed = int(input('Speed: ')) % 101
 deadzone = 10
 
-buttonMap = {'312':[m.forward,(speed,0,1)],'310':[m.turn,('l',0,speed)],'313':[m.forward,(speed,0)],'311':[m.turn,('r',0,speed)],'316':[exit,()]}
+buttonMap = {'312':[m.forward,(speed,0,1)],'310':[m.turn,('l',0,speed)],'311':[m.turn,('r',0,speed)],'316':[exit,()]}
 
 for i in buttonMap.values():
     i.append(False)
@@ -22,10 +22,22 @@ def deadZones(conInput):
     a = conInput - 127
     if abs(a) < deadzone: return 0
     else: return a
-    
 
+def scale(coord,scaler):
+    dirl,dirr=0,0
+    if coord>0:
+        dirr=1
+        l=abs(coord)
+        r=125-l
+    elif coord<0:
+        dirl=1
+        r=abs(coord)
+        l=125-r
+    l *= scaler/255
+    r *= scaler/255
+    return (l,r,dirl,dirr)  
 x = 0
-y = 0
+R2 = 0
 
 devices = [evdev.InputDevice(path) for path in evdev.list_devices()]
 for device in devices:
@@ -42,6 +54,6 @@ for event in device.read_loop():
     elif event.type == evdev.ecodes.EV_ABS:
         if event.code == evdev.ecodes.ABS_X:
             x = deadZones(event.value)
-        if event.code == evdev.ecodes.ABS_Y:
-            y = deadZones(event.value)
-        print(x,y)
+        if event.code == 5:
+            R2 = event.value
+        movement.set(*scale(x,R2))
