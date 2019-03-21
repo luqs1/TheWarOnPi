@@ -13,11 +13,11 @@ def buttonPressed(button):
     a = buttonMap[button]
     print(a)
     a[2] = not a[2]
-    if not a[2]:
+    if a[2]:
         a[0](*a[1])
-    elif a[2]:
+    elif not a[2]:
         m.stop()
-
+"""
 def deadZones(conInput):
     a = conInput - 127
     if abs(a) < deadzone: return 0
@@ -39,7 +39,7 @@ def scale(coord,scaler):
     return (l,r,dirl,dirr)  
 x = 0
 R2 = 0
-
+"""
 devices = [evdev.InputDevice(path) for path in evdev.list_devices()]
 for device in devices:
     print(device.path, device.name, device.phys)
@@ -52,10 +52,11 @@ for event in device.read_loop():
         print(evdev.categorize(event))
         button = str(evdev.categorize(event)).split()[4]
         buttonPressed(button)
-        time.sleep(0.1)
+"""
     elif event.type == evdev.ecodes.EV_ABS:
         if event.code == evdev.ecodes.ABS_X:
             x = deadZones(event.value)
         if event.code == 5:
             R2 = event.value
         m.set(*scale(x,R2))
+"""
