@@ -25,6 +25,7 @@ def deadZones(conInput):
 
 def scale(coord,scaler):
     dirl,dirr=0,0
+    l,r=127,127
     if coord>0:
         dirr=1
         l=abs(coord)
@@ -33,8 +34,8 @@ def scale(coord,scaler):
         dirl=1
         r=abs(coord)
         l=125-r
-    l *= scaler/255
-    r *= scaler/255
+    l *= scaler/127
+    r *= scaler/127
     return (l,r,dirl,dirr)  
 x = 0
 R2 = 0
