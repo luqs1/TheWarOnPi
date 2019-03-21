@@ -17,7 +17,7 @@ def buttonPressed(button):
         a[0](*a[1])
     elif not a[2]:
         m.stop()
-"""
+
 def deadZones(conInput):
     a = conInput - 127
     if abs(a) < deadzone: return 0
@@ -39,7 +39,7 @@ def scale(coord,scaler):
     return (l,r,dirl,dirr)  
 x = 0
 R2 = 0
-"""
+
 devices = [evdev.InputDevice(path) for path in evdev.list_devices()]
 for device in devices:
     print(device.path, device.name, device.phys)
