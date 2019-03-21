@@ -15,7 +15,7 @@ def buttonPressed(button):
     a[2] = not a[2]
     if a[2]:
         a[0](*a[1])
-    elif not a[2]:
+    elif a[2]:
         m.stop()
 
 def deadZones(conInput):
