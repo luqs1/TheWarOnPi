@@ -29,9 +29,9 @@ class Movement: #The Movement Class for moving the robot; assign a variable to u
             self.stop() # Take a guess: it stops after that duration.
 
     def turn(self, rot, t=0, speed=100): #Experimental Turning Function based on my convoluted intuition of maths
-        if rot== 'l': #For rotation towards left from front aka, anticlockwise.
+        if rot== 'r': #For rotation towards left from front aka, anticlockwise.
             self.set(speed,speed,1,0) #0 == FORWARDS
-        elif rot== 'r': #For rotation towards right from front aka, clockwise.
+        elif rot== 'l': #For rotation towards right from front aka, clockwise.
             self.set(speed,speed,0,1) #0 == FORWARDS
         self.wait(t) #Now you see why I made a wait function ;D
     """
