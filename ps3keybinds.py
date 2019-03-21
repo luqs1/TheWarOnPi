@@ -52,6 +52,7 @@ for event in device.read_loop():
         print(evdev.categorize(event))
         button = str(evdev.categorize(event)).split()[4]
         buttonPressed(button)
+        time.sleep(0.1)
     elif event.type == evdev.ecodes.EV_ABS:
         if event.code == evdev.ecodes.ABS_X:
             x = deadZones(event.value)
