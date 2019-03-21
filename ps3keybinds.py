@@ -13,7 +13,7 @@ def buttonPressed(button):
     a = buttonMap[button]
     print(a)
     a[2] = not a[2]
-    if a[2]:
+    if not a[2]:
         a[0](*a[1])
     elif a[2]:
         m.stop()
