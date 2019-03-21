@@ -52,11 +52,12 @@ for event in device.read_loop():
         print(evdev.categorize(event))
         button = str(evdev.categorize(event)).split()[4]
         buttonPressed(button)
-"""
+
     elif event.type == evdev.ecodes.EV_ABS:
         if event.code == evdev.ecodes.ABS_X:
             x = deadZones(event.value)
         if event.code == 5:
             R2 = event.value
-        m.set(*scale(x,R2))
-"""
+            if R2 > 0:
+                m.set(*scale(x,R2))
+
