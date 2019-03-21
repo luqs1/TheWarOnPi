@@ -43,8 +43,6 @@ class Movement: #The Movement Class for moving the robot; assign a variable to u
 		elif direction = 'r':
 			self.set(Vo, Vi, 0,0)
     """
-    def absMove(self, x, y):
-        pass
     
     def forward(self, speed=50, t=0,direction = 0): #Basic Forwards movement; impossible to underestimate
         if direction != 0:
