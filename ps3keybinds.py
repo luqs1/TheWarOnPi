@@ -57,4 +57,4 @@ for event in device.read_loop():
             x = deadZones(event.value)
         if event.code == 5:
             R2 = event.value
-        movement.set(*scale(x,R2))
+        m.set(*scale(x,R2))
