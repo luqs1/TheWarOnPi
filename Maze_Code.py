@@ -20,11 +20,10 @@ IO.setup(l_Echo, IO.IN)
 IO.setup(r_Echo, IO.IN)
 IO.setup(f_Echo, IO.IN)
 
-l = distance(Trigger,l_Echo)
-r = distance(Trigger,r_Echo)
-f = distance(Trigger,f_Echo)
-
 while True:
+  l = distance(Trigger,l_Echo)
+  r = distance(Trigger,r_Echo)
+  f = distance(Trigger,f_Echo)
   if f < fThreshold and r > sThreshold and l < sThreshold:
     m.turn('r','0',speed)
   elif f < fThreshold and r < sThreshold and l > sThreshold:
@@ -32,4 +31,4 @@ while True:
   elif f < fThreshold and r > sThreshold and l > sThreshold:
     m.turn('r','0',speed)
   else:
-    m.forward(speed,0,1)
+    m.forward(speed,0,0)
