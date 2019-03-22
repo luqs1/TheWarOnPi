@@ -7,7 +7,7 @@ GPIO.setmode(GPIO.BCM)
 
 def trigger(GPIO_TRIGGER):
     GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
-    GPIO.setup(GPIO_ECHO, GPIO.IN)
+    GPIO.setup(GPIO_TRIGGER)
     # set Trigger to HIGH
     GPIO.output(GPIO_TRIGGER, True)
  
@@ -15,6 +15,7 @@ def trigger(GPIO_TRIGGER):
     time.sleep(0.00001)
     GPIO.output(GPIO_TRIGGER, False)
 def getUltra(GPIO_ECHO):
+    GPIO.setup(GPIO_ECHO)
     StartTime = time.time()
     StopTime = time.time()
  
