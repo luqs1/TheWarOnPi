@@ -23,9 +23,9 @@ IO.setup(f_Echo, IO.IN)
 timetoturn90 = 2 # WILL NEED TO BE CHANGED ON DAY
 x=0
 while True:
-  l = distance(Trigger,l_Echo)
-  r = distance(Trigger,r_Echo)
-  f = distance(Trigger,f_Echo)
+  l = round(distance(Trigger,l_Echo),2)
+  r = round(distance(Trigger,r_Echo),2)
+  f = round(distance(Trigger,f_Echo),2)
   x+=1
   if x==30:
       x=0
