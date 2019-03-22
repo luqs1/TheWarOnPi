@@ -4,11 +4,6 @@ import time
  
 #GPIO Mode (BOARD / BCM)
 GPIO.setmode(GPIO.BCM)
- 
-#set GPIO Pins
-GPIO_TRIGGER = int(input('Trigger: '))
-GPIO_ECHO = int(input('Echo: '))
-#set GPIO direction (IN / OUT)
 
 def distance(GPIO_TRIGGER,GPIO_ECHO):
     GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
@@ -40,6 +35,8 @@ def distance(GPIO_TRIGGER,GPIO_ECHO):
     return distance
  
 if __name__ == '__main__':
+ GPIO_TRIGGER = int(input('Trigger: '))
+ GPIO_ECHO = int(input('Echo: '))
     try:
         while True:
             dist = distance(GPIO_TRIGGER,GPIO_ECHO)
