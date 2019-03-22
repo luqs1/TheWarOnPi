@@ -5,7 +5,7 @@ import time
 #GPIO Mode (BOARD / BCM)
 GPIO.setmode(GPIO.BCM)
 
-def distance(GPIO_TRIGGER,GPIO_ECHO):
+def trigger(GPIO_TRIGGER):
     GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
     GPIO.setup(GPIO_ECHO, GPIO.IN)
     # set Trigger to HIGH
@@ -14,7 +14,7 @@ def distance(GPIO_TRIGGER,GPIO_ECHO):
     # set Trigger after 0.01ms to LOW
     time.sleep(0.00001)
     GPIO.output(GPIO_TRIGGER, False)
- 
+def getUltra(GPIO_ECHO):
     StartTime = time.time()
     StopTime = time.time()
  
@@ -33,6 +33,9 @@ def distance(GPIO_TRIGGER,GPIO_ECHO):
     distance = (TimeElapsed * 34300) / 2
  
     return distance
+def distance(GPIO_TRIGGER,GPIO_ECHO):
+    trigger(GPIO_TRIGGER)
+    getUltra(GPIO_ECHO)
  
 if __name__ == '__main__':
  GPIO_TRIGGER = int(input('Trigger: '))
