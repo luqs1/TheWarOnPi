@@ -26,6 +26,8 @@ while True:
   l = distance(Trigger,l_Echo)
   r = distance(Trigger,r_Echo)
   f = distance(Trigger,f_Echo)
+  print(f,l,r)
+  
   if f > fThreshold:
     m.forward(speed,0,0)
   elif r < sThreshold and l > sThreshold:
