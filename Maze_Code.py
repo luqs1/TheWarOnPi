@@ -7,7 +7,6 @@ speed = 100
 sThreshold = int(input('Side Threshold: '))
 fThreshold = int(input('Front Threshold: '))
 m = Movement()
-
 IO.setmode(IO.BCM)
 
 Trigger = 17
@@ -20,7 +19,8 @@ IO.setup(l_Echo, IO.IN)
 IO.setup(r_Echo, IO.IN)
 IO.setup(f_Echo, IO.IN)
 
-timetoturn90 = 2 # WILL NEED TO BE CHANGED ON DAY
+timetoturn90 = 2 # WILL NEED TO BE CHANGED ON DAY IF USED
+a = 0
 x=0
 while True:
   l = round(distance(Trigger,l_Echo),2)
@@ -29,16 +29,25 @@ while True:
   x+=1
   if x==30:
       x=0
-      print(f,l,r)
-  if f > fThreshold:
-    m.forward(speed,0,0)
-
+      print(f,l,r, a)
+  if f > fThreshold :
+    if a!=1:
+      m.forward(speed,0,0)
+      a = 1
   elif r < sThreshold and l > sThreshold:
-    m.turn('l',0,speed)
+    if a!=2:
+      m.turn('l',0,speed)
+      a=2
   elif r > sThreshold and l < sThreshold:
-    m.turn('r',0,speed)
+    if a!=3:
+      m.turn('r',0,speed)
+      a=3
   elif r > l:
-    m.turn('r', 0, speed)
+    if a!=3:
+      m.turn('r', 0, speed)
+      a=3
   else:
-    m.turn('l',0,speed)
+    if a!=2:
+      m.turn('l',0,speed)
+      a=2
 
