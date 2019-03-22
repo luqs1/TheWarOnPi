@@ -4,7 +4,8 @@ from Classes.Ultrasound import *
 from Classes.Movement import *
 
 speed = 100
-threshold = 20
+sThreshold = int(input('Side Threshold: '))
+fThreshold = int(input('Front Threshold: '))
 m = Movement()
 
 GPIO.setmode(GPIO.BCM)
@@ -24,11 +25,11 @@ r = distance(Trigger,r_Echo)
 f = distance(Trigger,f_Echo)
 
 while True:
-  if f < threshold and r > threshold and l < threshold:
+  if f < fThreshold and r > sThreshold and l < sThreshold:
     m.turn('r','0',speed)
-  elif f < threshold and r < threshold and l > threshold:
+  elif f < fThreshold and r < sThreshold and l > sThreshold:
     m.turn('l','0',speed)
-  elif f < threshold and r > threshold and l > threshold:
+  elif f < fThreshold and r > sThreshold and l > sThreshold:
     m.turn('r','0',speed)
   else:
     m.forward(speed,0,1)
