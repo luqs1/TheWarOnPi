@@ -28,12 +28,12 @@ while True:
   f = distance(Trigger,f_Echo)
   x=0
   x+=1
-  
-  if f > fThreshold:
-    m.forward(speed,0,0)
-    if x==40:
+  if x==30:
       x=0
       print(f,l,r)
+  if f > fThreshold:
+    m.forward(speed,0,0)
+
   elif r < sThreshold and l > sThreshold:
     m.turn('l',0,speed)
   elif r > sThreshold and l < sThreshold:
