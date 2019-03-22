@@ -37,13 +37,12 @@ def distance(GPIO_TRIGGER,GPIO_ECHO):
 if __name__ == '__main__':
  GPIO_TRIGGER = int(input('Trigger: '))
  GPIO_ECHO = int(input('Echo: '))
-    try:
-        while True:
-            dist = distance(GPIO_TRIGGER,GPIO_ECHO)
-            print ("Measured Distance = %.1f cm" % dist)
-            time.sleep(1)
- 
-        # Reset by pressing CTRL + C
-    except KeyboardInterrupt:
-        print("Measurement stopped by User")
-        GPIO.cleanup()
+ try:
+     while True:
+         dist = distance(GPIO_TRIGGER,GPIO_ECHO)
+         print ("Measured Distance = %.1f cm" % dist)
+         time.sleep(1)
+
+ except KeyboardInterrupt:
+     print("Measurement stopped by User")
+     GPIO.cleanup()
