@@ -25,10 +25,10 @@ while True:
   r = distance(Trigger,r_Echo)
   f = distance(Trigger,f_Echo)
   if f < fThreshold and r > sThreshold and l < sThreshold:
-    m.turn('r','0',speed)
+    m.turn('r',0,speed)
   elif f < fThreshold and r < sThreshold and l > sThreshold:
-    m.turn('l','0',speed)
+    m.turn('l',0,speed)
   elif f < fThreshold and r > sThreshold and l > sThreshold:
-    m.turn('r','0',speed)
+    m.turn('r',0,speed)
   else:
     m.forward(speed,0,0)
