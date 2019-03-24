@@ -23,19 +23,17 @@ def deadZones(conInput):
     if abs(a) < deadzone: return 0
     else: return a
 
-def scale(coord,scaler):
+def mapper(coord,scaler):
     dirl,dirr=0,0
-    l,r=127,127
+    l,r=100,100
     if coord>0:
-        dirr=1
-        l=abs(coord)
-        r=125-l
+        r= (-200/128)*abs(coord)
+        dirr=int(not dirr) if r < 0 else dirr
     elif coord<0:
-        dirl=1
-        r=abs(coord)
-        l=125-r
-    l *= scaler/127
-    r *= scaler/127
+        l= (-200/128)*abs(coord)
+        dirl=int(not dirl) if l < 0 else dirl
+    l *= scaler
+    r *= scaler
     return (l,r,dirl,dirr)  
 x = 0
 R2 = 0
@@ -59,5 +57,5 @@ for event in device.read_loop():
         if event.code == 5:
             R2 = event.value
             if R2 > 0:
-                m.set(*scale(x,R2))
+                m.set(*mapper(x,R2/255))
 
