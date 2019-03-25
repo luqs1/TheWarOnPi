@@ -32,7 +32,9 @@ def getU(GPIO_ECHO):
     distance = (TimeElapsed * 34300) / 2
  
     return distance
- 
+def distance(GPIO_TRIGGER,GPIO_ECHO):
+    trigger(GPIO_TRIGGER)
+    return getU(GPIO_ECHO)
 if __name__ == '__main__':
  GPIO_TRIGGER = int(input('Trigger: '))
  GPIO_ECHO = int(input('Echo: '))
