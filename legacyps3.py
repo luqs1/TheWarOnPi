@@ -17,7 +17,7 @@ def buttonPressed(button):
 devices = [evdev.InputDevice(path) for path in evdev.list_devices()]
 for device in devices:
     print(device.path, device.name, device.phys)
-device = evdev.InputDevice('/dev/input/event4')
+device = evdev.InputDevice('/dev/input/event2')
 print(device)
 pressed = False
 for event in device.read_loop():

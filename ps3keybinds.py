@@ -34,7 +34,7 @@ def mapper(coord,scaler):
         dirl=1 if l < 0 else 0
     l *= scaler
     r *= scaler
-    return abs(l),abs(r),dirl,dirr
+    return int(abs(l)),int(abs(r)),dirl,dirr
 x = 0
 R2 = 0
 
