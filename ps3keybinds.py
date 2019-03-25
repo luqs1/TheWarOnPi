@@ -49,7 +49,8 @@ for event in device.read_loop():
     if event.type == evdev.ecodes.EV_KEY:
         print(evdev.categorize(event))
         button = str(evdev.categorize(event)).split()[4]
-        buttonPressed(button)
+        if button != '313':
+            buttonPressed(button)
 
     elif event.type == evdev.ecodes.EV_ABS:
         if event.code == evdev.ecodes.ABS_X:
