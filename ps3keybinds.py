@@ -58,5 +58,6 @@ for event in device.read_loop():
         if event.code == 5:
             R2 = event.value
             if R2 > 0:
+                print(x,R2)
                 m.set(*mapper(x,R2/255))
 
