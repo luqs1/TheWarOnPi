@@ -55,6 +55,7 @@ for event in device.read_loop():
     elif event.type == evdev.ecodes.EV_ABS:
         if event.code == evdev.ecodes.ABS_X:
             x = deadZones(event.value)
+            print(x)
         if event.code == 5:
             R2 = event.value
             if R2 > 0:
