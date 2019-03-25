@@ -36,7 +36,7 @@ def getUltra(GPIO_ECHO):
     return distance
 def distance(GPIO_TRIGGER,GPIO_ECHO):
     trigger(GPIO_TRIGGER)
-    getUltra(GPIO_ECHO)
+    return getUltra(GPIO_ECHO)
  
 if __name__ == '__main__':
  GPIO_TRIGGER = int(input('Trigger: '))
