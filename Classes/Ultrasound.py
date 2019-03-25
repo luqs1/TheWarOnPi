@@ -5,9 +5,8 @@ import time
 #GPIO Mode (BOARD / BCM)
 GPIO.setmode(GPIO.BCM)
 
-def distance(GPIO_TRIGGER, GPIO_ECHO):
+def trigger(GPIO_TRIGGER):
     GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
-    GPIO.setup(GPIO_ECHO, GPIO.IN)
     # set Trigger to HIGH
     GPIO.output(GPIO_TRIGGER, True)
  
@@ -16,7 +15,8 @@ def distance(GPIO_TRIGGER, GPIO_ECHO):
     GPIO.output(GPIO_TRIGGER, False)
     StartTime = time.time()
     StopTime = time.time()
- 
+def getU(GPIO_ECHO):
+    GPIO.setup(GPIO_ECHO, GPIO.IN)
     # save StartTime
     while GPIO.input(GPIO_ECHO) == 0:
         StartTime = time.time()
