@@ -31,7 +31,7 @@ def mapper(coord,scaler,dir1):
         l= 100 - (100/128)*abs(coord)
     l *= scaler
     r *= scaler
-    return int(abs(l)),int(abs(r)),dirl,dirr
+    return int(abs(l)),int(abs(r)),dir1,dir1
 x = 0
 R2 = 0
 
@@ -56,7 +56,10 @@ for event in device.read_loop():
         if event.code == 5:
             R2 = event.value
             if R2 > 0:
-                out = mapper(x,R2/255)
-                print(out)
-                m.set(*out)
+                if R2 < 20:
+                    m.stop()
+                else:
+                    out = mapper(x,R2/255)
+                    print(out)
+                    m.set(*out)
 
