@@ -4,7 +4,7 @@ m = Movement()
 speed = int(input('Speed: ')) % 101
 deadzone = 10
 
-buttonMap = {'312':[m.forward,(speed,0,1)],'310':[m.turn,('l',0,speed)],'311':[m.turn,('r',0,speed)],'316':[exit,()]}
+buttonMap = {'310':[m.turn,('l',0,speed)],'311':[m.turn,('r',0,speed)],'316':[exit,()]}
 
 for i in buttonMap.values():
     i.append(False)
@@ -46,7 +46,7 @@ for event in device.read_loop():
     if event.type == evdev.ecodes.EV_KEY:
         print(evdev.categorize(event))
         button = str(evdev.categorize(event)).split()[4]
-        if button != '313':
+        if button not in ['313','312']:
             buttonPressed(button)
 
     elif event.type == evdev.ecodes.EV_ABS:
@@ -59,5 +59,13 @@ for event in device.read_loop():
                     m.stop()
                 else:
                     out = mapper(x,R2/255,0)
+                    m.set(*out)
+        if event.code == 4:
+            L2  = event.value
+            if L2 >  0:
+                if L2 < 20:
+                    m.stop()
+                else:
+                    out= mapper(x,L2/255,1)
                     m.set(*out)
 
