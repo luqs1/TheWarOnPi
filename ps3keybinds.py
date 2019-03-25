@@ -34,7 +34,7 @@ def mapper(coord,scaler,dir1):
     return int(abs(l)),int(abs(r)),dir1,dir1
 x = 0
 R2 = 0
-
+L2 = 0
 devices = [evdev.InputDevice(path) for path in evdev.list_devices()]
 for device in devices:
     print(device.path, device.name, device.phys)
@@ -52,14 +52,12 @@ for event in device.read_loop():
     elif event.type == evdev.ecodes.EV_ABS:
         if event.code == evdev.ecodes.ABS_X:
             x = deadZones(event.value)
-            print(x)
         if event.code == 5:
             R2 = event.value
             if R2 > 0:
                 if R2 < 20:
                     m.stop()
                 else:
-                    out = mapper(x,R2/255)
-                    print(out)
+                    out = mapper(x,R2/255,0)
                     m.set(*out)
 
