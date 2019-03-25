@@ -7,7 +7,7 @@ GPIO.setmode(GPIO.BCM)
 
 def distance(GPIO_TRIGGER, GPIO_ECHO):
     GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
-    GPIO.setup(GPIO_TRIGGER,GPIO_ECHO)
+    GPIO.setup(GPIO_ECHO, GPIO.IN)
     # set Trigger to HIGH
     GPIO.output(GPIO_TRIGGER, True)
  
