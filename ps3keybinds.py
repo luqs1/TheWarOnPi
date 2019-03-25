@@ -28,10 +28,10 @@ def mapper(coord,scaler):
     l,r=100,100
     if coord>0:
         r= 100 - (100/128)*abs(coord)
-        dirr=int(not dirr) if r < 0 else dirr
+        dirr=1 if r < 0 else 0
     elif coord<0:
         l= 100 - (100/128)*abs(coord)
-        dirl=int(not dirl) if l < 0 else dirl
+        dirl=1 if l < 0 else 0
     l *= scaler
     r *= scaler
     return abs(l),abs(r),dirl,dirr
