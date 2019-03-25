@@ -23,31 +23,47 @@ IO.setup(f_Echo, IO.IN)
 timetoturn90 = 2 # WILL NEED TO BE CHANGED ON DAY IF USED
 a = 0
 x=0
-
+avef=0
+aveb=0
+avel=0
+aver=0
+n=0
 while True:
   trigger(Trigger)
   l,r,f = getU(l_Echo),getU(r_Echo),getU(f_Echo)
   x+=1
+  n+=1
+  if n==10:
+    avef=0
+    aveb=0
+    avel=0
+    aver=0
+    n=0
   if x==30:
       x=0
       print(f,l,r, a)
   if f > fThreshold :
-    if a!=1:
+    avef+=1
+    if a!=1 and avef>8:
       m.forward(speed,0,0)
       a = 1
   elif r < sThreshold and l > sThreshold:
-    if a!=2:
+    avel+=1
+    if a!=2 and avel>9:
       m.turn('l',0,speed)
       a=2
   elif r > sThreshold and l < sThreshold:
-    if a!=3:
+    aver+=1
+    if a!=3 and aver>8:
       m.turn('r',0,speed)
       a=3
   elif r > l:
-    if a!=3:
+    aver+=1
+    if a!=3 and aver>8:
       m.turn('r', 0, speed)
       a=3
   else:
-    if a!=2:
+    avel+=1
+    if a!=2 avel>8:
       m.turn('l',0,speed)
       a=2
