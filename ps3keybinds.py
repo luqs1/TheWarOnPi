@@ -23,15 +23,12 @@ def deadZones(conInput):
     if abs(a) < deadzone: return 0
     else: return a
 
-def mapper(coord,scaler):
-    dirl,dirr=0,0
+def mapper(coord,scaler,dir1):
     l,r=100,100
     if coord>0:
         r= 100 - (100/128)*abs(coord)
-        dirr=1 if r < 0 else 0
     elif coord<0:
         l= 100 - (100/128)*abs(coord)
-        dirl=1 if l < 0 else 0
     l *= scaler
     r *= scaler
     return int(abs(l)),int(abs(r)),dirl,dirr
