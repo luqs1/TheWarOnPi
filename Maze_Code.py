@@ -26,7 +26,7 @@ x=0
 
 while True:
   trigger(Trigger)
-  l,r,f = getUltra(l_Echo),getUltra(r_Echo),getUltra(f_Echo)
+  l,r,f = getU(l_Echo),getU(r_Echo),getU(f_Echo)
   x+=1
   if x==30:
       x=0
