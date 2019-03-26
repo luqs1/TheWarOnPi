@@ -50,6 +50,7 @@ for event in device.read_loop():
             buttonPressed(button)
 
     elif event.type == evdev.ecodes.EV_ABS:
+        print(event.code) #To check what L2 is
         if event.code == evdev.ecodes.ABS_X:
             x = deadZones(event.value)
         if event.code == 5:
