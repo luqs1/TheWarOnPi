@@ -38,6 +38,7 @@ if __name__ == '__main__':
      while True:
          dist = distance(GPIO_TRIGGER,GPIO_ECHO)
          print ("Measured Distance = %.1f cm" % dist)
+         time.sleep(0.1)
 
  except KeyboardInterrupt:
      print("Measurement stopped by User")
