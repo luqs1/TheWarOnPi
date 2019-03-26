@@ -3,7 +3,6 @@ from Classes.Movement import *
 m = Movement()
 speed = int(input('Speed: ')) % 101
 deadzone = 10
-l2button = int(input('L2 Evcode prediction: '))
 buttonMap = {'310':[m.turn,('l',0,speed)],'311':[m.turn,('r',0,speed)],'316':[exit,()]}
 
 for i in buttonMap.values():
@@ -62,7 +61,7 @@ for event in device.read_loop():
                 else:
                     out = mapper(x,R2/255,0)
                     m.set(*out)
-        if event.code == l2button:
+        if event.code == 0:
             L2  = event.value
             if L2 >  0:
                 if L2 < 20:
