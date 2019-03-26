@@ -1,13 +1,9 @@
 #Libraries
 import RPi.GPIO as GPIO
 import time
- 
 #GPIO Mode (BOARD / BCM)
 GPIO.setmode(GPIO.BCM)
-
 def distance(GPIO_TRIGGER,GPIO_ECHO):
-    GPIO.setup(GPIO_ECHO, GPIO.IN)
-    GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
     # set Trigger to HIGH
     GPIO.output(GPIO_TRIGGER, True)
  
@@ -28,12 +24,13 @@ def distance(GPIO_TRIGGER,GPIO_ECHO):
     TimeElapsed = StopTime - StartTime
     # multiply with the sonic speed (34300 cm/s)
     # and divide by 2, because there and back
-    distance = (TimeElapsed * 34300) / 2
- 
-    return distance
+    s = (TimeElapsed * 34300) / 2
+    return s
 if __name__ == '__main__':
  GPIO_TRIGGER = int(input('Trigger: '))
  GPIO_ECHO = int(input('Echo: '))
+ GPIO.setup(GPIO_ECHO, GPIO.IN)
+ GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
  try:
      while True:
          dist = distance(GPIO_TRIGGER,GPIO_ECHO)
