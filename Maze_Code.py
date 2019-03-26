@@ -1,4 +1,3 @@
-import time
 import RPi.GPIO as IO
 from Classes.Ultrasound import *
 from Classes.Movement import *
@@ -29,8 +28,7 @@ avel=0
 aver=0
 n=0
 while True:
-  trigger(Trigger)
-  l,r,f = getU(l_Echo),getU(r_Echo),getU(f_Echo)
+  l,r,f = distance(Trigger,l_Echo),distance(Trigger,r_Echo),distance(Trigger,f_Echo)
   x+=1
   n+=1
   if n==10:
@@ -64,6 +62,6 @@ while True:
       a=3
   else:
     avel+=1
-    if a!=2 avel>8:
+    if a!=2 and avel>8:
       m.turn('l',0,speed)
       a=2
