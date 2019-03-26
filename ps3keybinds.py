@@ -62,7 +62,7 @@ for event in device.read_loop():
                 else:
                     out = mapper(x,R2/255,0)
                     m.set(*out)
-        if event.code == 4:
+        if event.code == 3:
             L2  = event.value
             if L2 >  0:
                 if L2 < 20:
