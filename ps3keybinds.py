@@ -49,14 +49,12 @@ for event in device.read_loop():
             buttonPressed(button)
 
     elif event.type == evdev.ecodes.EV_ABS:
-        print('    ', event.code) #To check what L2 is
-
         if event.code == evdev.ecodes.ABS_X:
             x = deadZones(event.value)
         if event.code == 5:
             R2 = event.value
             if R2 > 0:
-                if R2 < 20:
+                if R2 < 70:
                     m.stop()
                 else:
                     out = mapper(x,R2/255,0)
@@ -64,9 +62,9 @@ for event in device.read_loop():
         if event.code == 0:
             L2  = event.value
             if L2 >  0:
-                if L2 < 20:
+                if L2 < 70:
                     m.stop()
                 else:
-                    out= mapper(x,L2/255,1)
+                    out = mapper(x, L2 / 255, 1)
                     m.set(*out)
 
