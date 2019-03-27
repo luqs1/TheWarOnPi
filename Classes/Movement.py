@@ -8,7 +8,7 @@ class Movement: #The Movement Class for moving the robot; assign a variable to u
     def __init__(self):
         IO.setmode(IO.BCM) #BCM and BOARD are the two different modes, BOARD seems easier.
         self.outpins = [[18, [5,6]], [13, [19,26]]] #sub-arrays with the Input and Direction pins for both left and right
-        IO.setup(self.outpins[0] + self.outpins[1], IO.OUT) #Setting up every pin as an output
+        IO.setup([self.outpins[0][0]] + self.outpins[0][1] + [self.outpins[1][0]] + self.outpins[1][1], IO.OUT) #Setting up every pin as an output
         self.left  = IO.PWM(self.outpins[0][0], 100) #setting up PWM (analogue) signal for left wheels
         self.right = IO.PWM(self.outpins[1][0], 100) #setting up PWM (analogue) signal for right wheels
         self.left.start(0) #Initialise with DUTYCYCLE 0%
