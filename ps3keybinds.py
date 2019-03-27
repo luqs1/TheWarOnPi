@@ -45,7 +45,7 @@ for event in device.read_loop():
     if event.type == evdev.ecodes.EV_KEY:
         print(evdev.categorize(event))
         button = str(evdev.categorize(event)).split()[4]
-        if button not in ['313','312']:
+        if True:
             buttonPressed(button)
 
     elif event.type == evdev.ecodes.EV_ABS:
@@ -57,9 +57,10 @@ for event in device.read_loop():
                 if R2 > trigThresh:
                     out = mapper(x,R2/255,0)
                     m.set(*out)
+        """
         if event.code == 0:
             L2  = event.value
             if L2 > trigThresh:
                     out = mapper(x, L2 / 255, 1)
                     m.set(*out)
-        print(L2,R2,x)
+        """
