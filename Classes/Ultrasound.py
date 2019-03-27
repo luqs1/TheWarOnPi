@@ -5,6 +5,9 @@ import time
 GPIO.setmode(GPIO.BCM)
 def distance(GPIO_TRIGGER,GPIO_ECHO):
     # set Trigger to HIGH
+    GPIO.setup(GPIO_ECHO, GPIO.IN)
+    GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
+
     GPIO.output(GPIO_TRIGGER, True)
  
     # set Trigger after 0.01ms to LOW
