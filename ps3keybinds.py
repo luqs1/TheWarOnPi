@@ -60,7 +60,7 @@ for event in device.read_loop():
                     out = mapper(x,R2/255,0)
                     m.set(*out)
         if event.code == 0:
-            L2  = event.value
+            L2  = event.value - 128
             if L2 >  0:
                 if L2 < trigThresh:
                     m.stop()
