@@ -27,3 +27,4 @@ class Vision():
                  ]
         else:
             return None
+v = Vision()

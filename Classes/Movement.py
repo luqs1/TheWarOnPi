@@ -7,7 +7,7 @@ from time import sleep #Used to maintain an action for a set duration of time -N
 class Movement: #The Movement Class for moving the robot; assign a variable to use
     def __init__(self):
         IO.setmode(IO.BCM) #BCM and BOARD are the two different modes, BOARD seems easier.
-        self.outpins = [[18, 6], [13, 19]] #sub-arrays with the Input and Direction pins for both left and right
+        self.outpins = [[18, [5,6]], [13, [19,26]]] #sub-arrays with the Input and Direction pins for both left and right
         IO.setup(self.outpins[0] + self.outpins[1], IO.OUT) #Setting up every pin as an output
         self.left  = IO.PWM(self.outpins[0][0], 100) #setting up PWM (analogue) signal for left wheels
         self.right = IO.PWM(self.outpins[1][0], 100) #setting up PWM (analogue) signal for right wheels
@@ -17,8 +17,10 @@ class Movement: #The Movement Class for moving the robot; assign a variable to u
     def set(self, speedl, speedr, dirl=0, dirr=0):
         self.left.ChangeDutyCycle(speedl) #Change DUTYCYCLE to speedl%
         self.right.ChangeDutyCycle(speedr) #Change DUTYCYCLE to speedl%
-        IO.output(self.outpins[0][1], dirl) #Digital Output Direction where 1 is Backwards and 0 is Forwards
-        IO.output(self.outpins[1][1], dirr) #Digital Output Direction where 1 is Backwards and 0 is Forwards
+        IO.output(self.outpins[0][1][0], dirl) #Digital Output Direction where 1 is Backwards and 0 is Forwards
+        IO.output(self.outpins[0][1][1], dirl) #""
+        IO.output(self.outpins[1][1][0], dirr) #Digital Output Direction where 1 is Backwards and 0 is Forwards
+        IO.output(self.outpins[1][1][1], dirr) #""
 
     def stop(self): #General Function to stop Robot
         self.set(0,0,0,0) #Backtrack to set function to see why this works
