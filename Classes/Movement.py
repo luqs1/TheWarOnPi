@@ -54,3 +54,6 @@ class Movement: #The Movement Class for moving the robot; assign a variable to u
             dir1,dir2 = 0,0
         self.set(speed, speed, dir1, dir2) #0 == FORWARDS
         self.wait(t) # ;D
+    def finish(self):
+        IO.cleanup()
+        exit()
