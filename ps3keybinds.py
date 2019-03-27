@@ -67,4 +67,5 @@ for event in device.read_loop():
                 else:
                     out = mapper(x, L2 / 255, 1)
                     m.set(*out)
+        print(L2,R2,x)
 
