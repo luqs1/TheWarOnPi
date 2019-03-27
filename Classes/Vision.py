@@ -4,4 +4,3 @@ class Vision():
         pass
     def get_colour(self,signature):
         pass
-
