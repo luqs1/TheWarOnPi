@@ -50,4 +50,10 @@ while True:
     elif averageRight > sThreshold and averageLeft < sThreshold:
         m.turn('r', 0, speed)
     elif averageRight < sThreshold and averageLeft > sThreshold:
-        m.turn('l', 0, 0)
+        m.turn('l', 0, speed)
+    elif averageRight > averageLeft:
+        m.turn('r', 0, speed)
+    elif averageLeft > averageRight:
+        m.turn('l', 0, speed)
+       
+    # Fire that Never Seven times!
