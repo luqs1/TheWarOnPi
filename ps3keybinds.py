@@ -57,11 +57,9 @@ for event in device.read_loop():
                 if R2 > trigThresh:
                     out = mapper(x,R2/255,0)
                     m.set(*out)
-        """
         if event.code == 0:
             L2  = event.value - 128
             if L2 <  0:
                     out = mapper(x, L2 / 255, 1)
                     m.set(*out)
         print(L2,R2,x)
-        """
