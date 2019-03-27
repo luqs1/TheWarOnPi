@@ -3,7 +3,7 @@ from Classes.Movement import *
 m = Movement()
 speed = int(input('Speed: ')) % 101
 deadzone = 10
-buttonMap = {'310':[m.turn,('l',0,speed)],'311':[m.turn,('r',0,speed)],'316':[exit,()],'304':[m.stop,()]}
+buttonMap = {'312':[m.forward(100,0,1)],'310':[m.turn,('l',0,speed)],'311':[m.turn,('r',0,speed)],'316':[exit,()],'304':[m.stop,()]}
 trigThresh = int(input('Trigger Thresholds: '))
 for i in buttonMap.values():
     i.append(False)
@@ -45,7 +45,7 @@ for event in device.read_loop():
     if event.type == evdev.ecodes.EV_KEY:
         print(evdev.categorize(event))
         button = str(evdev.categorize(event)).split()[4]
-        if True:
+        if button not in ['313']:
             buttonPressed(button)
 
     elif event.type == evdev.ecodes.EV_ABS:
