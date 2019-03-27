@@ -4,7 +4,7 @@ m = Movement()
 speed = int(input('Speed: ')) % 101
 deadzone = 10
 buttonMap = {'310':[m.turn,('l',0,speed)],'311':[m.turn,('r',0,speed)],'316':[exit,()]}
-
+trigThresh = int(input('Trigger Thrsholds: '))
 for i in buttonMap.values():
     i.append(False)
 
@@ -54,7 +54,7 @@ for event in device.read_loop():
         if event.code == 5:
             R2 = event.value
             if R2 > 0:
-                if R2 < 70:
+                if R2 < trigThresh:
                     m.stop()
                 else:
                     out = mapper(x,R2/255,0)
@@ -62,7 +62,7 @@ for event in device.read_loop():
         if event.code == 0:
             L2  = event.value
             if L2 >  0:
-                if L2 < 70:
+                if L2 < trigThresh:
                     m.stop()
                 else:
                     out = mapper(x, L2 / 255, 1)
