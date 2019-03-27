@@ -4,7 +4,7 @@ m = Movement()
 speed = int(input('Speed: ')) % 101
 deadzone = 10
 buttonMap = {'310':[m.turn,('l',0,speed)],'311':[m.turn,('r',0,speed)],'316':[exit,()]}
-trigThresh = int(input('Trigger Thrsholds: '))
+trigThresh = int(input('Trigger Thresholds: '))
 for i in buttonMap.values():
     i.append(False)
 
