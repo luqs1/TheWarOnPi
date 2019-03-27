@@ -3,7 +3,7 @@ from Classes.Movement import *
 m = Movement()
 speed = int(input('Speed: ')) % 101
 deadzone = 10
-buttonMap = {'312':[m.forward(100,0,1)],'310':[m.turn,('l',0,speed)],'311':[m.turn,('r',0,speed)],'316':[exit,()],'304':[m.stop,()]}
+buttonMap = {'312':[m.forward,(100,0,1)],'310':[m.turn,('l',0,speed)],'311':[m.turn,('r',0,speed)],'316':[exit,()],'304':[m.stop,()]}
 trigThresh = int(input('Trigger Thresholds: '))
 for i in buttonMap.values():
     i.append(False)
