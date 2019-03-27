@@ -20,7 +20,10 @@ class Vision():
     def get_block(self):
         blocks = self.blocks
         count = pixy_get_blocks(number, self.blocks)
-        return [(blocks[index].type, blocks[index].signature,
+        if count > 0:
+            return [(blocks[index].type, blocks[index].signature,
                  blocks[index].x, blocks[index].y, blocks[index].width,
                  blocks[index].height) for index in range(0,count)
                  ]
+        else:
+            return None
