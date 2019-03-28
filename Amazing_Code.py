@@ -46,6 +46,7 @@ while True:
         averageFront=0
         averageRight=0
         averageLeft=0
+    print(averageLeft,averageRight,averageFront)
  
     if averageFront > fThreshold:
         m.forward(speed, 0, 0)
