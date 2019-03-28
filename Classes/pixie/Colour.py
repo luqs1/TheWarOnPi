@@ -7,7 +7,7 @@ for i in range(2):
     done_colour = False
     while not done_colour:
         blocks = v.get_colour(i)
-        if len(blocks) == 0:
+        if blocks == None:
             m.turn('r')
         else:
             for block in blocks:
