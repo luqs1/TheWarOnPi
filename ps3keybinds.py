@@ -34,7 +34,7 @@ def mapper(coord,scaler,dir1):
     return int(abs(l)),int(abs(r)),dir1,dir1
 x = 0
 R2 = 0
-L2 = 0
+#L2 = 0
 devices = [evdev.InputDevice(path) for path in evdev.list_devices()]
 for device in devices:
     print(device.path, device.name, device.phys)
