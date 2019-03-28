@@ -1,7 +1,9 @@
 from Movement import *
 from Vision2 import  *
+import pixy
 m = Movement()
 v = Vision()
+pixy.set_lamp(1,0)
 area_limit = 1000
 for i in range(2):
     done_colour = False
