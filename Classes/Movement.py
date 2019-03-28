@@ -4,6 +4,7 @@
 import RPi.GPIO as IO # The Module that lets you control GPIO pins in the Raspberry Pi
 from time import sleep #Used to maintain an action for a set duration of time -NO CONCURRENCY ALLOWED
 
+time_90 = 0.7
 class Movement: #The Movement Class for moving the robot; assign a variable to use
     def __init__(self):
         IO.setmode(IO.BCM) #BCM and BOARD are the two different modes, BOARD seems easier.
@@ -30,12 +31,15 @@ class Movement: #The Movement Class for moving the robot; assign a variable to u
             sleep(duration) #Stops program for duration seconds.
             self.stop() # Take a guess: it stops after that duration.
 
-    def turn(self, rot, t=0, speed=100): #Experimental Turning Function based on my convoluted intuition of maths
+    def turn(self, rot, t=0.0, speed=100): #Experimental Turning Function based on my convoluted intuition of maths
         if rot== 'r': #For rotation towards left from front aka, anticlockwise.
             self.set(speed,speed,1,0) #0 == FORWARDS
         elif rot== 'l': #For rotation towards right from front aka, clockwise.
             self.set(speed,speed,0,1) #0 == FORWARDS
         self.wait(t) #Now you see why I made a wait function ;D
+
+    def turn90(self,rot,speed=100):
+        self.turn(rot,time_90,speed)
     """
     def proTurn(self, aFromWall, xFromEnd, direction):
 		Vo = 100
