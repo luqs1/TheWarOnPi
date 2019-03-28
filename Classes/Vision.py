@@ -36,7 +36,7 @@ class Vision():
         read = self.get_block()
         result = []
         for line in read:
-            if line[1] == signature:
+            if line['signature'] == signature:
                 result.append(line)
         return result
 
