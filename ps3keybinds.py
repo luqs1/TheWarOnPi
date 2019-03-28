@@ -4,7 +4,7 @@ import RPi.GPIO as IO
 m = Movement()
 speed = int(input('Speed: ')) % 101
 deadzone = 10
-buttonMap = {'312':[m.forward,(100,0,1)],'310':[m.turn,('l',0,speed)],'311':[m.turn,('r',0,speed)],'316':[IO.cleanup,()],'304':[m.stop,()]}
+buttonMap = {'312':[m.forward,(100,0,1)],'310':[m.turn,('l',0,speed)],'311':[m.turn,('r',0,speed)],'316':[m.finish(),()],'304':[m.stop,()]}
 trigThresh = int(input('Trigger Thresholds: '))
 for i in buttonMap.values():
     i.append(False)
@@ -34,7 +34,7 @@ def mapper(coord,scaler,dir1):
     return int(abs(l)),int(abs(r)),dir1,dir1
 x = 0
 R2 = 0
-L2 = 0
+#L2 = 0
 devices = [evdev.InputDevice(path) for path in evdev.list_devices()]
 for device in devices:
     print(device.path, device.name, device.phys)
