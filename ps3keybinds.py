@@ -18,9 +18,9 @@ def buttonPressed(button):
     elif not a[2]:
         m.stop()
 
-def deadZones(conInput):
-    a = conInput - 127
-    if abs(a) < deadzone: return 0
+def deadZones(conInput,cutoff):
+    a = conInput
+    if abs(a) < cutoff: return 0
     else: return a
 
 def mapper(coord,scaler,dir1):
@@ -51,11 +51,10 @@ for event in device.read_loop():
 
     elif event.type == evdev.ecodes.EV_ABS:
         if event.code == evdev.ecodes.ABS_X:
-            x = deadZones(event.value)
+            x = deadZones(event.value-127,deadzone)
         if event.code == 5:
             R2 = event.value
             if R2 > 0:
-                if R2 > trigThresh:
                     out = mapper(x,R2/255,0)
                     m.set(*out)
         """
