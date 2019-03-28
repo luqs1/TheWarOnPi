@@ -1,12 +1,12 @@
 from Classes.Movement import *
-
+from Classes.Vision import  *
 m = Movement()
 v = Vision()
 area_limit = 1000
 for i in range(4):
     done_colour = False
     while not done_colour:
-        blocks = v.get_color(i)
+        blocks = v.get_colour(i)
         if len(blocks) == 0:
             m.turn('r')
         for block in blocks:
