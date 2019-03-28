@@ -1,6 +1,6 @@
 import RPi.GPIO as IO
-from .Movement import *
-from .Ultrasound import *
+from Classes.Movement import *
+from Classes.Ultrasound import *
 import time as t
 from threading import Thread
 

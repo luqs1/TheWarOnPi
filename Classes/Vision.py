@@ -1,3 +1,5 @@
+import sys
+sys.path.append('~/pixy/build/libpixyusb_swig')
 from pixy import *
 from ctypes import *
 import time as t
