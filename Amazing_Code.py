@@ -4,7 +4,7 @@ from Classes.Movement import *
 import time as t
  
 speed = 100
-sleeptime = int(input('Delay: '))
+sleeptime = float(input('Delay: '))
 sThreshold = int(input('Side Threshold: '))
 fThreshold = int(input('Front Threshold: '))
 reasonableValueMark = int(input('Ultrasound Distance Limit: ')) #
