@@ -1,5 +1,5 @@
 from Classes.Movement import *
-from Classes.Vision2 import  *
+from Classes.pixie.Vision2 import  *
 m = Movement()
 v = Vision()
 area_limit = 1000
