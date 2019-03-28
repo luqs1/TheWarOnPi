@@ -14,6 +14,7 @@ for i in range(2):
             x = block.m_x
             y = block.m_y
             a = block.m_width * block.m_height
+            print(block,x,y,a)
             if a <= area_limit or True:
                 if abs(x-160) <= 30:
                     m.forward(100,0,0)
