@@ -4,8 +4,9 @@ m = Movement()
 v = Vision()
 areaLim = 1000
 while True:
-    block = v.get_block()[0]
+    block = v.get_block()
     if block != None:
+        block = block[0]
         a = block.m_height * block.m_width
         x = block.m_x
         if abs(x-160) < 30:
