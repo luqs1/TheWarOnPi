@@ -22,7 +22,6 @@ IO.setup(r_Echo, IO.IN)
 IO.setup(f_Echo, IO.IN)
  
 timetoturn90 = 2  # WILL NEED TO BE CHANGED ON DAY IF USED
- 
 while True:
     totalLeft, totalRight, totalFront = [], [], []
  
@@ -40,10 +39,14 @@ while True:
             totalFront.append(aFront)
  
         t.sleep(0.100)
- 
-    averageLeft = sum(totalLeft)/len(totalLeft)
-    averageRight = sum(totalRight)/len(totalRight)
-    averageFront = sum(totalFront)/len(totalFront)
+    if 0 not in [len(totalFront),len(totalLeft),len(totalRight)]:
+        averageLeft = sum(totalLeft)/len(totalLeft)
+        averageRight = sum(totalRight)/len(totalRight)
+        averageFront = sum(totalFront)/len(totalFront)
+    else:
+        averageFront=0
+        averageRight=0
+        averageLeft=0
  
     if averageFront > fThreshold:
         m.forward(speed, 0, 0)
@@ -55,5 +58,7 @@ while True:
         m.turn('r', 0, speed)
     elif averageLeft > averageRight:
         m.turn('l', 0, speed)
+    else:
+        m.stop()
        
     # Fire that Never Seven times!
