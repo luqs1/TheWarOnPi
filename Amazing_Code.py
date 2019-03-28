@@ -38,7 +38,7 @@ while True:
         if aFront < reasonableValueMark:
             totalFront.append(aFront)
  
-        t.sleep(0.100)
+        t.sleep(0.020)
     if 0 not in [len(totalFront),len(totalLeft),len(totalRight)]:
         averageLeft = sum(totalLeft)/len(totalLeft)
         averageRight = sum(totalRight)/len(totalRight)
