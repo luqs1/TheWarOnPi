@@ -3,7 +3,7 @@ from Classes.Vision2 import  *
 m = Movement()
 v = Vision()
 area_limit = 1000
-for i in range(4):
+for i in range(2):
     done_colour = False
     while not done_colour:
         blocks = v.get_colour(i)
@@ -14,9 +14,9 @@ for i in range(4):
             y = block.m_y
             a = block.m_width * block.m_height
         if a <= area_limit:
-            if abs(x-200) <= 30:
+            if abs(x-160) <= 30:
                 m.forward(20)
-            elif x > 200:
+            elif x > 160:
                 m.turn('r')
             else:
                 m.turn('l')
