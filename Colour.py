@@ -10,9 +10,9 @@ for i in range(4):
         if blocks == None:
             m.turn('r')
         for block in blocks:
-            x = block['x']
-            y = block['y']
-            a = block['width'] * block['height']
+            x = block.m_x
+            y = block.m_y
+            a = block.m_width * block.m_height
         if a <= area_limit:
             if abs(x-200) <= 30:
                 m.forward(20)
