@@ -23,10 +23,18 @@ class Vision():
         blocks = self.blocks
         count = pixy_get_blocks(number, self.blocks)
         if count > 0:
-            return [(blocks[index].type, blocks[index].signature,
+            return [[blocks[index].type, blocks[index].signature,
                  blocks[index].x, blocks[index].y, blocks[index].width,
-                 blocks[index].height) for index in range(0,count)
+                 blocks[index].height] for index in range(0,count)
                  ]
         else:
             return None
+    def get_colour(self,signature):
+        read = self.get_block()
+        result = []
+        for line in read:
+            if line[1] == signature:
+                result.append(line)
+        return result
+
 v = Vision()
