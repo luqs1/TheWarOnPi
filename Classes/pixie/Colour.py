@@ -6,7 +6,7 @@ area_limit = 1000
 for i in range(2):
     done_colour = False
     while not done_colour:
-        blocks = v.get_colour(i)
+        blocks = v.get_block()
         if blocks == None:
             m.turn('r')
         else:
