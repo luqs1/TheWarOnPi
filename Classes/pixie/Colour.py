@@ -14,12 +14,14 @@ for i in range(2):
             x = block.m_x
             y = block.m_y
             a = block.m_width * block.m_height
-            if a <= area_limit:
+            if a <= area_limit or True:
                 if abs(x-160) <= 30:
                     m.forward(20)
                 elif x > 160:
                     m.turn('r')
                 else:
                     m.turn('l')
+            """
             elif a > area_limit:
                 done_colour = True
+            """
