@@ -34,6 +34,8 @@ class Vision():
             return None
     def get_colour(self,signature):
         read = self.get_block()
+        if read == None:
+            return None
         result = []
         for line in read:
             if line.m_signature == signature:
