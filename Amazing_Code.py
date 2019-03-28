@@ -4,6 +4,7 @@ from Classes.Movement import *
 import time as t
  
 speed = 100
+sleeptime = int(input('Delay: '))
 sThreshold = int(input('Side Threshold: '))
 fThreshold = int(input('Front Threshold: '))
 reasonableValueMark = int(input('Ultrasound Distance Limit: ')) #
@@ -29,16 +30,14 @@ while True:
         aLeft = distance(Trigger, l_Echo)
         if aLeft < reasonableValueMark:
             totalLeft.append(aLeft)
- 
+        t.sleep(sleeptime / 2)
         aRight = distance(Trigger, r_Echo)
         if aRight < reasonableValueMark:
             totalRight.append(aRight)
- 
+        t.sleep(sleeptime / 2)
         aFront = distance(Trigger, f_Echo)
         if aFront < reasonableValueMark:
             totalFront.append(aFront)
- 
-        t.sleep(0.020)
     if 0 not in [len(totalFront),len(totalLeft),len(totalRight)]:
         averageLeft = sum(totalLeft)/len(totalLeft)
         averageRight = sum(totalRight)/len(totalRight)
