@@ -4,7 +4,7 @@
 import RPi.GPIO as IO # The Module that lets you control GPIO pins in the Raspberry Pi
 from time import sleep #Used to maintain an action for a set duration of time -NO CONCURRENCY ALLOWED
 
-time_90 = 0.7
+time_90 = 0.75
 class Movement: #The Movement Class for moving the robot; assign a variable to use
     def __init__(self):
         IO.setmode(IO.BCM) #BCM and BOARD are the two different modes, BOARD seems easier.
