@@ -5,9 +5,9 @@ import time as t
  
 speed = 100
 sleeptime = 0.015
-sThreshold = 24
+sThreshold = int(input('Side Threshold: '))
 fThreshold = int(input('Front Threshold: '))
-reasonableValueMark = 300 #
+reasonableValueMark = 300
  
 m = Movement()
 IO.setmode(IO.BCM)
