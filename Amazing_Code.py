@@ -56,10 +56,8 @@ while True:
         m.turn('l', 0, speed)
     elif averageRight > averageLeft:
         m.turn90('r')
-        m.forward(speed,0.2)
     elif averageLeft > averageRight:
         m.turn90('l')
-        m.forward(speed,0.2)
     else:
         m.stop()
        
