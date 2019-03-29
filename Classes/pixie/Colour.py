@@ -7,7 +7,7 @@ v.setmode(1)
 tspeed = int(input('Turning Speed: '))
 pixy.set_lamp(1,0)
 area_limit = 1000
-for i in range(2):
+for i in range(4):
     done_colour = False
     while not done_colour:
         blocks = v.get_color(i)
