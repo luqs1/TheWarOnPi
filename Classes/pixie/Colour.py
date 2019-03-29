@@ -9,7 +9,7 @@ area_limit = int(input('Area Limit: '))
 for i in range(4):
     done_colour = False
     while not done_colour:
-        blocks = v.get_color(i)
+        blocks = v.get_colour(i)
         if blocks == None:
             m.turn('r')
         else:
