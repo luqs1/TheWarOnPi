@@ -50,10 +50,10 @@ while True:
  
     if averageFront > fThreshold:
         m.forward(speed, 0, 0)
-    elif averageLeft < sThreshold:
-        m.turn('r', 0.3, speed)
-    elif averageRight < sThreshold:
-        m.turn('l', 0.3, speed)
+        if averageLeft < sThreshold:
+            m.turn('r', 0.3, speed)
+        elif averageRight < sThreshold:
+            m.turn('l', 0.3, speed)
     elif averageRight > averageLeft:
         m.turn90('r')
     elif averageLeft > averageRight:
