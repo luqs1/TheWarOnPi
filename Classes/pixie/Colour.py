@@ -1,11 +1,10 @@
 from Movement import *
 from Vision2 import  *
-import pixy
 m = Movement()
 v = Vision()
 v.setmode(1)
 tspeed = int(input('Turning Speed: '))
-pixy.set_lamp(1,0)
+v.lamp(0,1)
 area_limit = int(input('Area Limit: '))
 for i in range(4):
     done_colour = False
