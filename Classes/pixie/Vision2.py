@@ -37,10 +37,14 @@ class Vision():
         if mode == 1:
             pixy.change_prog("color_connected_components")
             self.blocks = BlockArray(number)
-        else:
+        elif mode == 2:
             pixy.change_prog("line")
             self.vectors = VectorArray(100)
             self.intersections = IntersectionLineArray(100)
+        else:
+            print('Invalid Mode')
+    def lamp(self,a,b):
+        set_lamp(a,b)
     def get_block(self):
         blocks = self.blocks
         count = ccc_get_blocks(number, self.blocks)
@@ -58,3 +62,6 @@ class Vision():
             if line.m_signature == signature:
                 result.append(line)
         return result
+    def get_lines(self):
+        read = line_get_all_features()
+        count -
