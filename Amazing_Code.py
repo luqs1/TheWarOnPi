@@ -4,10 +4,10 @@ from Classes.Movement import *
 import time as t
  
 speed = 100
-sleeptime = float(input('Delay: '))
-sThreshold = int(input('Side Threshold: '))
+sleeptime = 0.015
+sThreshold = 24
 fThreshold = int(input('Front Threshold: '))
-reasonableValueMark = int(input('Ultrasound Distance Limit: ')) #
+reasonableValueMark = 300 #
  
 m = Movement()
 IO.setmode(IO.BCM)
