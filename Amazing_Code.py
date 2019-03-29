@@ -49,11 +49,11 @@ while True:
     print(averageLeft,averageRight,averageFront)
  
     if averageFront > fThreshold:
-        m.forward(speed, 0.2, 0)
+        m.forward(speed, 0, 0)
         if averageLeft < sThreshold:
-            m.turn('r', 0.2, speed)
+            m.turn('r', 0.01, speed)
         elif averageRight < sThreshold:
-            m.turn('l', 0, speed)
+            m.turn('l', 0.01, speed)
     elif averageRight > averageLeft:
         m.turn90('r')
     elif averageLeft > averageRight:
