@@ -2,13 +2,6 @@ import pixy
 from ctypes import *
 from pixy import *
 
-# Pixy2 Python SWIG get blocks example #
-
-print ("Pixy2 Python SWIG Example -- Get Blocks")
-
-pixy.init ()
-pixy.change_prog ("color_connected_components");
-
 class Blocks (Structure):
   _fields_ = [ ("m_signature", c_uint),
     ("m_x", c_uint),
@@ -20,10 +13,34 @@ class Blocks (Structure):
     ("m_age", c_uint) ]
 
 number = 2
+
+class Vector (Structure):
+  _fields_ = [
+    ("m_x0", c_uint),
+    ("m_y0", c_uint),
+    ("m_x1", c_uint),
+    ("m_y1", c_uint),
+    ("m_index", c_uint),
+    ("m_flags", c_uint) ]
+
+class IntersectionLine (Structure):
+  _fields_ = [
+    ("m_index", c_uint),
+    ("m_reserved", c_uint),
+    ("m_angle", c_uint) ]
+
 class Vision():
     def __init__(self):
-        self.blocks = BlockArray(number)
+        pixy.init()
         self.frame = 0
+    def setmode(self,mode):
+        if mode == 1:
+            pixy.change_prog("color_connected_components")
+            self.blocks = BlockArray(number)
+        else:
+            pixy.change_prog("line")
+            self.vectors = VectorArray(100)
+            self.intersections = IntersectionLineArray(100)
     def get_block(self):
         blocks = self.blocks
         count = ccc_get_blocks(number, self.blocks)

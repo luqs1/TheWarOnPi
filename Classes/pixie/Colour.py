@@ -3,6 +3,7 @@ from Vision2 import  *
 import pixy
 m = Movement()
 v = Vision()
+v.setmode(1)
 tspeed = int(input('Turning Speed: '))
 pixy.set_lamp(1,0)
 area_limit = 1000
@@ -14,9 +15,9 @@ for i in range(2):
             m.turn('r')
         else:
             block = blocks[0]
-            x = block.m_x
-            y = block.m_y
-            a = block.m_width * block.m_height
+            x = int(block.m_x)
+            y = int(block.m_y)
+            a = int(block.m_width * block.m_height)
             print(block,x,y,a)
             if a <= area_limit or True:
                 if abs(x -160) < 20:
