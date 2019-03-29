@@ -38,8 +38,8 @@ class Movement: #The Movement Class for moving the robot; assign a variable to u
             self.set(speed,speed,0,1) #0 == FORWARDS
         self.wait(t) #Now you see why I made a wait function ;D
 
-    def turn90(self,rot,speed=100):
-        self.turn(rot,time_90,speed)
+    def turn90(self,rot):
+        self.turn(rot,time_90,100)
     """
     def proTurn(self, aFromWall, xFromEnd, direction):
 		Vo = 100

@@ -55,9 +55,9 @@ while True:
     elif averageRight < sThreshold and averageLeft > sThreshold:
         m.turn('l', 0, speed)
     elif averageRight > averageLeft:
-        m.turn90('r',100)
+        m.turn90('r')
     elif averageLeft > averageRight:
-        m.turn90('l',100)
+        m.turn90('l')
     else:
         m.stop()
        
