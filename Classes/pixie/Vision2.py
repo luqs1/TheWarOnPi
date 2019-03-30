@@ -75,6 +75,8 @@ class Vision():
     def get_lowest_line(self):
         print(3)
         arr = self.get_lines()
+        if arr == None:
+            return None
         lines = arr[0]
         count = arr[1]
         if lines == None:
