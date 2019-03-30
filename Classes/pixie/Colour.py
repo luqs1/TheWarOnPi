@@ -36,4 +36,5 @@ for i in range(1,5):
                 else:
                     m.turn('l',0,tspeed)
             else:
+                m.forward(100,reverse,1)
                 done_colour = True
