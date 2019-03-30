@@ -6,6 +6,7 @@ v= Vision()
 v.setmode(2)
 v.lamp(0,1)
 tSpeed=30
+odir=None
 while True:
     line = v.get_lowest_line()
     print(line)
@@ -15,6 +16,10 @@ while True:
             m.forward()
         elif angle > 0:
             m.turn('r',0,tSpeed)
+            odir = 'l'
         else:
             m.turn('l',0,tSpeed)
-
+            odir = 'r'
+    else:
+        if odir != None:
+            m.turn(odir,0,tSpeed)
