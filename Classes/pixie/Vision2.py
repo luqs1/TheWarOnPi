@@ -69,16 +69,18 @@ class Vision():
         count = line_get_vectors(number,self.vectors)
         if count > 0:
             print(2)
-            return self.vectors
+            return [self.vectors,count]
         else:
             return None
     def get_lowest_line(self):
         print(3)
-        lines = self.get_lines()
+        arr = self.get_lines()
+        lines = arr[0]
+        count = arr[1]
         if lines == None:
             return None
         lline = lines[0]
-        lines = [lines[i] for i in range(len(lines))]
+        lines = [lines[i] for i in range(count)]
         for a in lines:
             if lline.m_y0 > a.m_y0:
                 lline = a
