@@ -5,6 +5,7 @@ m= Movement()
 v= Vision()
 v.setmode(2)
 v.lamp(0,1)
+tSpeed=30
 while True:
     line = v.get_lowest_line()
     print(line)
