@@ -77,7 +77,7 @@ class Vision():
         lines = self.get_lines()
         if lines == None:
             return None
-        print(4)
+        print(lines)
         lline = lines[0]
         for a in lines:
             if lline.m_y0 > a.m_y0:
