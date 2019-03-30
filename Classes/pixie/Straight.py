@@ -7,6 +7,7 @@ v.setmode(2)
 v.lamp(0,1)
 while True:
     line = v.get_lowest_line()
+    print(line)
     if line != None:
         angle = degrees(tan((line.m_x1 -line.m_x0)/(line.m_y1 - line.m_y0)))
         if abs(angle) < 10:
