@@ -13,4 +13,4 @@ class Ramp:
         IO.output(self.descendPin,1)
     def anglestop(self):
         IO.output(self.elevatePin,0)
-        IO.output(self.elevatePin,0)
+        IO.output(self.descendPin,0)
