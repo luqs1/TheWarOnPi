@@ -1,11 +1,16 @@
 from Movement import *
 from Vision2 import  *
+from Ultrasound import *
+
 m = Movement()
 v = Vision()
 v.setmode(1)
 tspeed = int(input('Turning Speed: '))
 v.lamp(0,1)
-area_limit = int(input('Area Limit: '))
+area_limit = 1000
+fPin = 4
+trigger = 17
+
 for i in range(2,5):
     done_colour = False
     while not done_colour:
@@ -20,12 +25,14 @@ for i in range(2,5):
             y = int(block.m_y)
             a = int(block.m_width * block.m_height)
             print(block,x,y,a)
-            if a <= area_limit or True:
+            areac = a <= area_limit
+            disc = distance(trigger,fPin) > 10
+            if disc:
                 if abs(x -160) < 20:
                     m.forward(100,0,0)
                 elif x > 160:
                     m.turn('r',0,tspeed)
                 else:
                     m.turn('l',0,tspeed)
-            elif a > area_limit:
+            else:
                 done_colour = True
