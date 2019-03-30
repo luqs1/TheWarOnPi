@@ -10,8 +10,9 @@ v.lamp(0,1)
 area_limit = 1000
 fPin = 4
 trigger = 17
-
-for i in range(2,5):
+r = int(input('Distance: '))
+reverse = int(input('Reverse Time: '))
+for i in range(2,6):
     done_colour = False
     while not done_colour:
         blocks = v.get_colour(i)
@@ -26,7 +27,7 @@ for i in range(2,5):
             a = int(block.m_width * block.m_height)
             print(block,x,y,a)
             areac = a <= area_limit
-            disc = distance(trigger,fPin) > 10
+            disc = distance(trigger,fPin) > r
             if disc:
                 if abs(x -160) < 20:
                     m.forward(100,0,0)
@@ -35,4 +36,5 @@ for i in range(2,5):
                 else:
                     m.turn('l',0,tspeed)
             else:
+                m.forward(100,reverse,1)
                 done_colour = True
