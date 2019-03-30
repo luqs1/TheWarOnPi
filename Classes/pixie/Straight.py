@@ -14,6 +14,6 @@ while True:
         if abs(angle) < 10:
             m.forward()
         elif angle > 0:
-            m.turn('r')
+            m.turn('r',0,tSpeed)
         else:
-            m.turn('l')
+            m.turn('l',0,tSpeed)
