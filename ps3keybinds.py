@@ -20,6 +20,7 @@ def buttonPressed(button):
             a[0](*a[1])
         elif not a[2]:
             m.stop()
+            r.anglestop()
     except:
         pass
 
