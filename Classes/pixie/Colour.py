@@ -7,7 +7,7 @@ v = Vision()
 v.setmode(1)
 tspeed = int(input('Turning Speed: '))
 v.lamp(0,1)
-area_limit = 1000
+area_limit = 500
 fPin = 4
 trigger = 17
 r = int(input('Distance: '))
@@ -28,7 +28,7 @@ for i in range(2,6):
             print(block,x,y,a)
             areac = a <= area_limit
             disc = distance(trigger,fPin) > r
-            if disc:
+            if disc or areac:
                 if abs(x -160) < 20:
                     m.forward(100,0,0)
                 elif x > 160:
