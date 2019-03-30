@@ -61,6 +61,7 @@ class Vision():
         for line in read:
             if line.m_signature == signature:
                 result.append(line)
+        if len(result) == 0: return None
         return result
     def get_lines(self):
         read = line_get_all_features()
