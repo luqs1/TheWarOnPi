@@ -78,7 +78,7 @@ class Vision():
         if lines == None:
             return None
         lline = lines[0]
-        print(lines)
+        lines = [lines[i] for i in range(len(lines))]
         for a in lines:
             if lline.m_y0 > a.m_y0:
                 lline = a
