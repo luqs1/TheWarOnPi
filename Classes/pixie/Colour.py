@@ -28,7 +28,7 @@ for i in range(1,5):
             print(block,x,y,a)
             areac = a <= area_limit
             disc = distance(trigger,fPin) > r
-            if disc or areac:
+            if disc:
                 if abs(x -160) < 20:
                     m.forward(100,0,0)
                 elif x > 160:
