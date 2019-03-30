@@ -12,7 +12,7 @@ fPin = 4
 trigger = 17
 r = int(input('Distance: '))
 reverse = int(input('Reverse Time: '))
-for i in range(2,6):
+for i in range(1,5):
     done_colour = False
     while not done_colour:
         blocks = v.get_colour(i)
