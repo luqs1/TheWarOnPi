@@ -9,7 +9,7 @@ while True:
     line = v.get_lowest_line()
     print(line)
     if line != None:
-        angle = degrees(tan((line.m_x1 -line.m_x0)/(line.m_y1 - line.m_y0)))
+        angle = degrees(tan((line.m_x1 -line.m_x0)/(line.m_y1 - line.m_y0 + 0.0001)))
         if abs(angle) < 10:
             m.forward()
         elif angle > 0:
