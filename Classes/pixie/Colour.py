@@ -12,7 +12,9 @@ for i in range(4):
         blocks = v.get_colour(i)
         if blocks == None:
             m.turn('r')
+            print('Turning')
         else:
+            print('Found Something!')
             block = blocks[0]
             x = int(block.m_x)
             y = int(block.m_y)
