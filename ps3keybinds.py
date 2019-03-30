@@ -3,7 +3,7 @@ from Classes.Movement import *
 from Classes.Ramp import *
 import RPi.GPIO as IO
 m = Movement()
-r =
+r = Ramp()
 speed = int(input('Speed: ')) % 101
 deadzone = 10
 buttonMap = {'312':[m.forward,(100,0,1)],'310':[m.turn,('l',0,speed)],'311':[m.turn,('r',0,speed)],'316':[m.finish,()],'304':[m.stop,()],'544':[r.angleup,()],'545':[r.angledown,()]}
