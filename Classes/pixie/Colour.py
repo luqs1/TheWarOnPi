@@ -7,7 +7,7 @@ v = Vision()
 v.setmode(1)
 tspeed = int(input('Turning Speed: '))
 v.lamp(0,1)
-area_limit = 500
+area_limit = 1000
 fPin = 4
 trigger = 17
 r = int(input('Distance: '))
