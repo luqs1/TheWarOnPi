@@ -6,7 +6,7 @@ v.setmode(1)
 tspeed = int(input('Turning Speed: '))
 v.lamp(0,1)
 area_limit = int(input('Area Limit: '))
-for i in range(4):
+for i in range(2,5):
     done_colour = False
     while not done_colour:
         blocks = v.get_colour(i)
