@@ -67,7 +67,7 @@ class Vision():
         read = line_get_all_features()
         count = line_get_vectors(number,self.vectors)
         if count > 0:
-            return vectors
+            return self.vectors
         else:
             return None
     def get_lowest_line(self):
