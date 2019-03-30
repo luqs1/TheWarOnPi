@@ -64,13 +64,16 @@ class Vision():
         if len(result) == 0: return None
         return result
     def get_lines(self):
+        print(1)
         read = line_get_all_features()
         count = line_get_vectors(number,self.vectors)
         if count > 0:
+            print(2)
             return self.vectors
         else:
             return None
     def get_lowest_line(self):
+        print(3)
         lines = self.get_lines()
         if lines == None:
             return None
@@ -78,4 +81,5 @@ class Vision():
         for a in lines:
             if lline.m_y0 > a.m_y0:
                 lline = a
+        print(4)
         return lline
