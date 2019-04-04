@@ -3,3 +3,6 @@ This project was made for PiWars 2019, for a robot with a tank build, specifical
 We purposefully avoided using an Arduino.
 If you ever need any guidance with the code, you can send an email to:
 pranav.rethinam@challoners.org
+adarsh.prusty@challoners.org
+aaron.hoskin@challoners.org
+luqmaan.ahmed@challoners.org
